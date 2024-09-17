@@ -19,7 +19,7 @@ func main() {
 	if err != nil {
 		return
 	}
-	asciiChars := myfunctions.BytesToAsciiMap([]byte(standard))
+	asciiChars := myfunctions.BytesToAsciiMap(standard)
 	result, err := myfunctions.WriteResult(asciiChars)
 	if err != nil {
 		log.Println(err)
