@@ -19,7 +19,7 @@ func WriteResult(asciiChars map[int]string) ([]string, error) {
 		}
 
 		// Handle \n.
-		if str[i] == '\\' && str[i+1] == 'n' {
+		if i+1 < len(str) && str[i] == '\\' && str[i+1] == 'n' {
 			if !inWord {
 				result = append(result, "")
 				lineToWrite++
@@ -31,7 +31,7 @@ func WriteResult(asciiChars map[int]string) ([]string, error) {
 			i++
 			continue
 		}
-		
+
 		// Prepare Slice to write character.
 		if letterCount == 0 {
 			newLineAscii := []string{"", "", "", "", "", "", "", ""}
@@ -42,7 +42,7 @@ func WriteResult(asciiChars map[int]string) ([]string, error) {
 			lineToWrite += 8
 		}
 
-		//Filling the letter in the result slice.
+		// Filling the letter in the result slice.
 		letterCount++
 		inWord = true
 		asciiChar := strings.Split(asciiChars[int(str[i])], "\n")
