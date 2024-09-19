@@ -4,17 +4,16 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"asciiArtFs/myFunctions"
+
+	myfunctions "asciiArtFs/myFunctions"
 )
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Println("Usage: go run . [STRING] [BANNER]")
-		fmt.Println()
-		fmt.Println("EX: go run . --output=<fileName.txt> something standard")
+		fmt.Println("Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
 		return
 	}
-	banner := os.Args[2]+".txt"
+	banner := os.Args[2] + ".txt"
 	standard, err := myfunctions.Read(banner)
 	if err != nil {
 		return
